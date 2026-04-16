@@ -1,0 +1,56 @@
+##############################################################################
+## GNU Makefile for building gcc-mcdc verification tests
+
+UT_ASSERT_PATH = ../ut-assert-minimal
+
+# Define the C compiler, linker and debugger
+CC = gcc
+LN = gcc
+CFLAGS = -std=c17 -Wall -Wstrict-prototypes -Wundef \
+         -DSOFTWARE_LITTLE_BIT_ORDER -D_EL -D_ix86_ -DUT_VERBOSE  \
+		 $(INCLUDES) 
+# do a "-DUT_VERBOSE_TEST_NAME" if we want the names of the individual test groups to show up, otherwise "verbose" only shows individual
+# passes and failures
+		 
+TARGET = gcc-mcdc-ver-tests-utassert_testrunner
+
+SRCS := $(TARGET).c
+SRCS += $(UT_ASSERT_PATH)/src/*.c 
+
+OBJS := $(TARGET).o
+OBJS += utassert.o
+OBJS += utlist.o
+OBJS += uttest.o
+OBJS += uttools.o
+
+INCLUDES := -I.
+INCLUDES += -I$(UT_ASSERT_PATH)/inc/
+
+DEBUGGER = -g
+
+###############################################################################
+## Rule to make the specified TARGET
+##
+%.exe: %.o
+	$(LN) $^ -o $*.exe
+
+###############################################################################
+##  "C" COMPILER RULE
+##
+%.o: %.c
+	$(CC) -c $(CFLAGS) $(SRCS) $<
+	
+##############################################################################
+##
+.PHONY: all clean run gcov
+
+all:clean $(TARGET) run
+
+$(TARGET): $(OBJS) 
+
+clean ::
+	rm -f gcc-mcdc-ver-tests-utassert_testrunner
+
+run ::
+	./$(TARGET)	
+	

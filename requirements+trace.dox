@@ -1,0 +1,529 @@
+/*==============================================================================
+ **  GNU GPL LICENSE BANNER
+ **  'requirements+trace.dox' - provides a set of requirements to test gcc's
+ **  MC/DC coverage capabilities against - Copyright (C) 2026 Lorraine Prokop
+ **
+ **  This program is free software: you can redistribute it and/or modify
+ **  it under the terms of the GNU General Public License as published by
+ **  the Free Software Foundation, either version 3 of the License, or
+ **  (at your option) any later version.
+ **
+ **  This program is distributed in the hope that it will be useful,
+ **  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ **  GNU General Public License for more details.
+ **
+ **  You should have received a copy of the GNU General Public License
+ **  along with this program.  If not, see <https://www.gnu.org/licenses/>.  
+ **===========================================================================*/
+ 
+/* The 40 requirements for GCC MC/DC testing in doxygen form */
+
+/**
+\requirement	C-1	Basic Block - Single Statement	
+				Verify that basic blocks in subprograms are correctly detected.
+\requirement	C-2	Basic Block Multiple Statements		
+				Verify that basic blocks forming a handled-sequence-of-statements in a function body are correctly detected.
+\requirement	C-3	loop statements		
+				Verify that loops are correctly handled.
+\requirement	C-4	if-elseif-else statements	
+				Verify that if statements are correctly handled, including variants such as if-else and if-elsif-else.
+\requirement	C-5	switch statement	
+				Verify that case statements are correctly handled.
+\requirement	C-6	break statement		
+				Verify that (apparent) basic blocks that do not complete execution because of a break statement are handled correctly.
+\requirement	C-7	goto statement	
+				Verify that (apparent) basic blocks that do not complete execution because of goto statements are handled correctly.
+\requirement	C-8	return statement	
+				Verify that (apparent) basic blocks that do not complete execution because of return statements are handled correctly.
+\requirement	C-9	declarations generating executable code		
+				Verify that declarations that generate executable code are included in statement coverage report.
+\requirement	C-10	partial evaluation due to short circuit		
+				Verify that partial evaluation of short-circuited expressions does not impact statement coverage.
+\requirement	C-11	partial evaluation due to ternary operator	
+				Verify that partial evaluation of conditional expressions does not impact statement coverage.
+\requirement	C-12	basic block spanning multiple lines		
+				Verify that a basic block spanning multiple lines is handled correctly.
+\requirement	C-13	basic block spanning a single line	
+				Verify that a basic block spanning a single line is handled correctly.
+\requirement	C-14	multiple blocks on one line		
+				Verify that multiple basic blocks on one line are handled correctly.
+\requirement	C-15	source code indentation does not affect coverage	
+				Verify that the coverage reported is not affected by source code indentation.
+\requirement	C-16	compiler optimization effect on coverage - killed assignment		
+				Verify killed assignment elimination is properly reflected with and without compiler optimization.
+\requirement	C-17	compiler optimization effect on coverage - subexpression optimization		
+				Verify that common subexpression optimization is properly reflected with and without compiler optimization.
+\requirement	C-18	compiler optimization effect on coverage - loop invariant optimization	
+				Verify that loop invariant optimization is reflected properly with and without compiler optimization.
+\requirement	C-19	compiler optimization effect on coverage - dead code elimination	
+				Verify that dead code elimination optimization does not impact coverage.
+\requirement	C-20	inlining	
+				Verify that function inlining does not impact coverage.
+\requirement	B-1	Boolean variable references		
+				Verify that Boolean variable references (local variable, global variable, parameter, array object, struct object) are handled correctly.
+\requirement	B-2	Boolean function return value	
+				Verify that calls to functions that return Boolean results are handled correctly.
+\requirement	B-3	constant Boolean variable in conditional	
+				Verify that constant Boolean values are handled correctly.
+\requirement	B-4	unary not (!) operator	
+				Verify that Boolean expressions containing the unary not operator are handled correctly.
+\requirement	B-5	or (||) and and (&&) operators	
+				Verify that Boolean expressions containing the binary operators and and or are handled correctly.
+\requirement	B-6	relational operators	
+				Verify that Boolean expressions containing relational operators (==, !=, >, <, >=, <=) are handled correctly.
+\requirement	B-7	ternary "?:" operator	
+				Verify that Boolean expressions containing the C ternary Boolean operator (A ? B : C) are handled correctly.
+\requirement	B-8	Boolean expressions in assignment statements	
+				Verify that Boolean expressions in  assignment statements are handled correctly.
+\requirement	B-9	Boolean expressions in loop indices		
+				Verify that Boolean for loop index variables are handled correctly.
+\requirement	B-10	Boolean function call parameters	
+				Verify that Boolean actual parameters are handled correctly.
+\requirement	B-11	implicit return		
+				Verify that an implicit return statement is handled correctly in coverage results.
+\requirement	A-1	uncoupled Boolean conditions - relational operators &&, ||, !		
+				Verify that uncoupled Boolean expressions containing operators and (&&), or (||), and not (!), each of which can be set independently of the others, are handled correctly.
+\requirement	A-2	uncoupled Boolean conditions - logical operators	
+				Verify that uncoupled Boolean expressions containing other binary operators, each of which can be set independently of the others, are handled correctly. Other binary operators are the following:  == (equal to), != (not equal to), > (greater than), < (less than), >= (greater than or equal to), and <= (less than or equal to). 
+\requirement	A-3	uncoupled Boolean conditions - short circuiting		
+				Verify that uncoupled Boolean expressions containing short-circuit operators, each of which can be set independently of the others, are handled correctly.
+\requirement	A-4	coupled Boolean conditions   - relational operators &&, ||, !	
+				Verify that coupled Boolean expressions containing operators and (&&), or (||), and not (!), each of which can be set independently of the others, are handled correctly.
+\requirement	A-5	coupled Boolean conditions   - logical operators	
+				Verify that coupled Boolean expressions containing other binary operators, each of which can be set independently of the others, are handled correctly. Other binary operators are the following:  == (equal to), != (not equal to), > (greater than), < (less than), >= (greater than or equal to), and <= (less than or equal to). 
+\requirement	A-6	coupled Boolean conditions   - short circuiting		
+				Verify that coupled Boolean expressions containing short-circuit operators, each of which can be set independently of the others, are handled correctly.
+\requirement	A-7	large condition count handling	
+				Verify that expressions with 64 conditions function properly, and a compiler warning is issued above 64.
+\requirement	A-8	non-tree-like decision structures	
+				Verify that non-tree-like decision tree structures are handled correctly.
+\requirement	A-9	stress cases - complex multi-line conditions	
+				Verify proper handling of a random assortment of multi-line conditions with multiple variables, parenthesis, and mixed operators.
+*/
+
+/* Below are the names, brief descriptions, and requirement traceability for  */
+/* the GCC-owned test suite of functions. Documentation and traceability is   */
+/* done here so as not to modify or alter the gcc-owned code in any way, but  */
+/* also that it can be used to generate documentation and traceability info.  */
+
+/**
+\file 		gcc_testsuite_gcov-19.c
+\brief      gcc-maintained tests as part of their open-source product
+\details	This file is owned by gcc as part of its open-source product test
+suite. It is available as 'gov-19.c' from:
+[gcc.git] / gcc / testsuite / gcc.misc-tests / gcov-19.c.    The original file
+has not been altered in any way, though to generate doxygen documentation of 
+the code and traceability to the requirements in this package, function 
+definitions and traceabilty information are contained in a separate file 
+called 'requirements+trace.dox'.   
+
+\fn          int id  (int x)
+\detilas	 identity function, used as helper for function call
+\satisfies   C-1 partial 1/2
+
+\fn          void mcdc001a (int a, int b)
+\details     or statement, 2 variables, 1/4 conditions
+\satisfies   B-5 partial, cases 1/8
+\satisfies   A-1 partial, cases 1-3/27
+
+\fn          void mcdc001b (int a, int b)
+\details     or statement, 2 variables, 3/4 conditions
+\satisfies   B-5 partial, cases 2/8
+\satisfies   A-1 partial, cases 4-5/27
+
+\fn          void mcdc001c (int a, int b)
+\details     or statement, 2 variables, 4/4 conditions
+\satisfies   B-5 partial, cases 3/8
+\satisfies   A-1 partial, cases 6/27
+
+\fn          void mcdc001d (int a, int b, int c)
+\details     or statement, 3 variables, 2/6 conditions
+\satisfies   B-5 partial, cases 4/8
+\satisfies   A-1 partial, cases 7-11/27
+
+\fn          void mcdc002a (int a, int b)
+\details     and statement - 2 variables, 1/4 conditions
+\satisfies   B-5 partial, cases 5/8
+\satisfies   A-1 partial, cases 12-14/27
+
+\fn          void mcdc002b (int a, int b)
+\details     and statement - 2 conditions, 3/4 conditions
+\satisfies   B-5 partial, cases 6/8
+\satisfies   A-1 partial, cases 15-16/27
+
+\fn          void mcdc002c (int a, int b)
+\details     and statement - 2 conditions, 4/4 conditions
+\satisfies   B-5 partial, cases 7/8
+\satisfies   A-1 partial, cases 17/27
+
+\fn          void mcdc002d (int a, int b, int c)
+\details     and statement - -3 conditions, 4/6 conditions
+\satisfies   B-5 partial, cases 8/8
+\satisfies   A-1 partial, cases 18-20/27
+
+\fn          void mcdc003a (int a, int b)
+\details     not statement -2 conditions, 2/4
+\satisfies   B-4 partial, cases 1/3
+\satisfies   A-1 partial, cases 21-23/27
+
+\fn          void mcdc004a (int a)
+\details     if - atomic, with else, 1/2
+\satisfies   C-4 partial, cases 1/10
+
+\fn          void mcdc004b (int a)
+\details     if - atomic, with else,  2/2
+\satisfies   C-4 partial, cases 2/10
+
+\fn          void mcdc004c (int a)
+\details     if - atomic, without else, 1/2
+\satisfies   C-4 partial, cases 3/10
+
+\fn          void mcdc004d (int a, int b, int c)
+\details     nested if - no elses - 2/2, 1/4
+\satisfies   C-4 partial, cases 4/10
+
+\fn          void mcdc004e (int a, int b, int c)
+\details     nested if - one else, 2/2, 1/4
+\satisfies   C-4 partial, cases 5/10
+
+\fn          void mcdc004f (int a, int b, int c)
+\details     if, elseif, if, 1/2, 0/2, 0/2
+\satisfies   C-4 partial, cases 6/10
+
+\fn          void mcdc005a (int a, int b, int c)
+\details     if mixing !! And &&, 3 variable, 1/6
+\satisfies   A-9 partial, cases 1/65
+
+\fn          void mcdc005b (int a, int b, int c, int d)
+\details     if - 4 variable, mixed &&, ||, masking MCDC, 3/8, short circuit
+\satisfies   A-3 partial, cases 1-5/152
+
+\fn          void mcdc005c (int a, int b, int c, int d)
+\details     if - 4 variable, mixed &&, ||, 2/8, masking, short circuit
+
+\fn          void mcdc005d (int a, int b, int c, int d)
+\details     if - 4 variable, mixed &&, ||, 2/8, multiterm masking/short circuit
+
+\fn          void mcdc005e (int a, int b)
+\details     || and && with constants
+\satisfies   A-9 partial, cases 2-3/65
+
+\fn          void mcdc006a (int a, int b, int c, int d, int e)
+\details     nested conditionals 2 deep , 2/2, 3/4, 2/4
+\satisfies   A-9 partial, cases 4-6/65
+
+\fn          void mcdc006b (int a, int b, int c)
+\details     nested conditionals 2 deep, 2/2, 2/2, 2/2
+\satisfies   A-9 partial, cases 7-9/65
+
+\fn          void mcdc006c (int a, int b, int c)
+\details     next condtiionals 3 deep, 2/2, 2/2, 2/2
+\satisfies   A-9 partial, cases 10-12/65
+
+\fn          void mcdc006d (int a, int b, int c)
+\details     next condtiionals 3 deep, 1/2, 1/2, 2/2
+\satisfies   A-9 partial, cases 13-15/65
+
+\fn          void mcdc006e (int a, int b, int c, int d)
+\details     if statement - 4 variabales (1 function), mixed &&||, 4/8
+\satisfies   A-9 partial, cases 16/65
+
+\fn          void mcdc007a (int a, int b, int c, int d)
+\details     nested if 3 deep, with else if, 2/2, 1/2, 2/2,1/2
+\satisfies   C-4 partial, cases 7/10
+
+\fn          void mcdc007b (int a, int b, int c)
+\details     goto, return, goto nested 3 deep if, 2/2, 2/2, 1/2
+\satisfies   C-7 partial, cases 1-2/3
+\satisfies   C-8 partial, cases 1/8
+
+\fn          void mcdc007c (int a, int b, int c)
+\details     multiple goto & returns, mixed if, 2/2, 2/2, 1/2
+\satisfies   C-8 partial, cases 3/8
+
+\fn          int mcdc007d (int a, int b, int c, int d, int e)
+\details     nested if, multivariaable, multple return, 1/2, 0/4, 0/2, 1/2
+\satisfies   C-8 partial, cases 4/8
+
+\fn          void mcdc008a (int a)
+\details     while loop - 2/2
+\satisfies   C-3 partial, cases 1/20
+\satisfies   B-9 partial, cases 1/3
+
+\fn          void mcdc008b (int a)
+\details     while  loop - 1/2
+\satisfies   C-3 partial, cases 2/20
+
+\fn          void mcdc008c (int a)
+\details     while loop - no body, 1/2, simple break
+\satisfies   C-3 partial, cases 3/20
+\satisfies   C-6 partial, cases 1/3
+
+\fn          void mcdc008d (int a, int b, int c, int d)
+\details     while loop - multi-term, 8/8
+\satisfies   C-3 partial, cases 4/20
+
+\fn          void mcdc009a (int a, int b)
+\details     while loop, multi-term, 3/4
+\satisfies   C-3 partial, cases 5/20
+
+\fn          void mcdc009b (int a, int b)
+\details     while loop, multi-term 2/4
+\satisfies   C-3 partial, cases 6/20
+
+\fn          void mcdc010a (int a, int b)
+\details     for loop - with if - 2/2
+\satisfies   C-3 partial, cases 7/20
+\satisfies   B-9 partial, cases 2/3
+
+\fn          void mcdc010b ()
+\details     for loop - one statement 2/2
+\satisfies   C-3 partial, cases 8/20
+
+\fn          int mcdc010c (int a, int b, int c)
+\details     for loop - multi-statement - 4/6, back to back returns
+\satisfies   C-3 partial, cases 9/20
+\satisfies   C-8 partial, cases 2/8
+
+\fn          void mcdc010d (int a)
+\details     for loop - infinite, 1/2
+\satisfies   C-3 partial, cases 10/20
+
+\fn          void mcdc011a (int a, int b, int c)
+\details     conditionals - no control flow - 3 var  - && ||, 5/6
+\satisfies   A-9 partial, cases 17/65
+
+\fn          void mcdc012a (int a, int b, int c)
+\details     if - sequencial expressions handles independent, 3/4, 2/2
+\satisfies   C-4 partial, cases 8/10
+
+\fn          void mcdc013a (int a, int b, int c)
+\details     dependent variables - branch coverage, but not MCDC, masking
+\satisfies   A-4 partial, cases 3/3
+
+\fn          void mcdc014a ()
+\details     64 or's, 64/128
+\satisfies   A-7 partial, cases 1/2
+
+\fn          void mcdc015a (int a, int b)
+\details     return - early return, 2/2, 1/2
+\satisfies   C-8 partial, cases 5/8
+
+\fn          void mcdc015b (int a, int b)
+\details     return - early return, 2/2, 2/2
+\satisfies   C-8 partial, cases 6/8
+
+\fn          void mcdc015c (int a, int b)
+\details     return - nested multiple, 2/2, 2/2
+\satisfies   C-8 partial, cases 7/8
+
+\fn          void mcdc015d (int a, int b, int c)
+\details     early return - 3 conditions - 1/2, 0/2, 0/2
+\satisfies   C-8 partial, cases 8/8
+
+\fn          void mcdc016a (int a, int b)
+\details     nested loops, two deep, 2/2, 2/2
+\satisfies   C-3 partial, cases 11/20
+
+\fn          void mcdc016b (int a, int b)
+\details     nested loops, 3 deep, 2/2, 2/2, 2/2 - break statement 2nd level
+\satisfies   C-3 partial, cases 12/20
+\satisfies   C-6 partial, cases 2/3
+
+\fn          void mcdc016c (int a, int b)
+\details     nested loops, 3 deep, 2/2, 1/2, 2/2
+\sat\satisfies   C-3 partial, cases 13/20
+
+\fn          void mcdc016d (int a, int b)
+\details     nested loops, 3 deep, 2/2, 2/2, 1/2
+\satisfies   C-3 partial, cases 14/20
+
+\fn          void mcdc017a (int a)
+\details     do-while loop, 2/2
+\satisfies   C-3 partial, cases 15/20
+\satisfies   B-9 partial, cases 3/3
+
+\fn          void mcdc017b (int a, int b)
+\details     do-while loop, with early break -2/2, break statement
+\satisfies   C-3 partial, cases 16/20
+\satisfies   C-6 partial, cases 3/3
+
+\fn          void mcdc017c (int a, int b)
+\details     do-while with embedded ifs, 1/2, 2/2, 1/2, 2/2, 2/2, multiple returns
+\satisfies   C-3 partial, cases 17/20
+\satisfies   B-7 partial, cases 1-2/10
+
+\fn          void mcdc017d (int a, int b, int c)
+\details     do-while, never called, 0/6
+\satisfies   C-3 partial, cases 18/20
+
+\fn          int mcdc018a (int a, int b, int c, int d, int e, int f, int g, int len)
+\details     stress - nested ifs, 7 var, returns, break - 2/2, 2/2, 3/4, 2/4, 2/2, 2/2
+\satisfies   B-9
+
+\fn          void mcdc018b (int a, int b, int c)
+\details     stress - 3 var - while, nested if, embedded ternary - 2;2, 2/2
+\satisfies   B-7 partial, cases 3/10
+
+\fn          void mcdc018c (int a, int b)
+\details     do while, infinite, 1/2, 1/2
+\satisfies   C-3 partial, cases 19/20
+
+\fn          void mcdc019a ()
+\details     65 conditions - should see "-Wcoverage-too-many-conditions"
+\satisfies   A-7 partial, cases 2/2
+
+\fn          void mcdc020a (int a)
+\details     ternary, 2/2
+\satisfies   B-7 partial, cases 4-6/10
+
+\fn          void mcdc020b (int a, int b)
+\details     ternary, 3/4
+\satisfies   B-7 partial, cases 7/10
+
+\fn          void mcdc020c (int a, int b)
+\details     ternary, 2/2, 1/2,
+\satisfies   B-7 partial, cases 8-9/10
+
+\fn          int mcdc020d (int b, int c, int d, int e, int f)
+\details     ternary, mixed with && ||, 7/10,
+\satisfies   B-7 partial, cases 10/10
+
+\fn          void mcdc021a ()
+\details     while loop - infinite, shouldn't be called, but should show up in gcc
+\satisfies   C-1 partial, cases 2/2
+\satisfies   C-3 partial, cases 20/20
+
+\fn          void mcdc021b ()
+\details     goto computed, 0/2, 0/6 lines
+\satisfies   C-7 partial, cases 3/3
+
+\fn          void mcdc021d (int a, int b, int c, int d)
+\details     if else, with edge contraction - a && id(b) should be 1 expression, 1/4, 1/4
+\satisfies   A-9 partial, cases 18-19/65
+
+\fn          void mcdc022a (int a, int b)
+\details     stress case for edge contraction (should be no infinite loop) - 2/2, 2/2
+\satisfies   A-9 partial, cases 20/65
+
+\fn          int mcdc022b (int a)
+\details     stress case - mixed !, ||, &&, nested if, else: 2/2, 1/4, 1/2, multiple return
+\satisfies   A-9 partial, cases 21/65
+
+\fn          void mcdc022c (int a)
+\details     stress case - !a, 2/2, 1/4, 1/2
+\satisfies   A-9 partial, cases 22-24/65
+
+\fn          void mcdc022d (int a)
+\details     stress case - !, 1/2, 1/2, 1/2
+\satisfies   B-4 partial, cases 2/3
+\satisfies   A-1 partial, cases 24/27
+
+\fn          void mcdc022e (int a, int b, int c, int d)
+\details     stress case - 4 variable if, gotos - 1/4, 1/2, 0/2
+\satisfies   A-9 partial, cases 25-28/65
+
+\fn          void mcdc023a (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
+\details     masking test - 13 variable - 1/24
+\satisfies   A-3 partial, cases 6-29/152
+
+\fn          void mcdc023b (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
+\details     masking test - 13 variable - 4/24
+\satisfies   A-3 partial, cases 30-50/152
+
+\fn          void mcdc023c (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
+\details     mastking test - 13 variable - 4/24 (different variables masked)
+\satisfies   A-3 partial, cases 51-71/152
+
+\fn          void mcdc023d (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
+\details     masking test - 13 variabale 4/24 (different variables masked)
+\satisfies   A-3 partial, cases 72-92/152
+
+\fn          void mcdc023e (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
+\details     masking test - 13 variabale 5/24
+\satisfies   A-3 partial, cases 93-112/152
+
+\fn          void mcdc023f (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
+\details     masking test - 13 variabale 5/24 (different variables masked)
+\satisfies   A-3 partial, cases 113-132/152
+
+\fn          void mcdc023g (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
+\details     masking test - 13 variabale 5/24 (different variables masked)
+\satisfies   A-3 partial, cases 133-152/152
+
+\fn          void mcdc024a (int a, int b)
+\details     goto, returns, labels - reference implementation without labels, 2/4, 2/4
+\satisfies   A-9 partial, cases 29-30/65
+
+\fn          void mcdc024b (int a, int b)
+\details     2 labels, 2/4
+\satisfies   A-9 partial, cases 31-32/65
+
+\fn          void mcdc024c (int a, int b)
+\details     2 labels in different places, 2/4
+\satisfies   A-9 partial, cases 33-34/65
+
+\fn          void mcdc024d (int a, int b)
+\details     4 labels, 2/4
+\satisfies   A-9 partial, cases 35-37/65
+
+\fn          int mcdc024e (int a, int b, int c)
+\details     no labels, conditions separated, 1/2, 0/2, 0/2, 0/2, multiple returns
+\satisfies   A-9 partial, cases 38-40/65
+
+\fn          int mcdc024f (int a, int b, int c)
+\details     nested else-less if, 3 var, 4 deep, 1/2, 0/2, 0/2, 0/2, 0/2
+\satisfies   C-4 partial, cases 9/10
+
+\fn          int mcdc024g (int a, int b, int c)
+\details     nested else-less if, 3 var, with returns, 1/2, 1/2, 0/2, 0/2
+\satisfies   A-9 partial, cases 41-44/65
+
+\fn          int mcdc024h (int a, int b, int c)
+\details     nested if with goto & return , 3 var, 1/2, 1/2, 1/2, 0/2, 0/2
+\satisfies   A-9 partial, cases 45,57-59/65
+
+\fn          int mcdc024i (int a, int b, int c)
+\details     gotos/lables, multiple returns, 3 var, nested, 2/2, 2/2, 1/2, 1/2, 0/2, 0/2
+\satisfies   A-9 partial, cases 60-65/65
+
+\fn          int mcdc025a (int a, int b, int c)
+\details     tree stress case - shared outcome with bypass node, multiple returns
+\satisfies   A-9 partial, cases 60-62/65
+
+\fn          int mcdc026a (int a, int b, int c, int d, int e)
+\details     Boolean expressions within function calls - reference expression
+\satisfies   B-10 partial, cases 1/5
+
+\fn          int mcdc026b (int a, int b, int c, int d, int e)
+\details     Boolean expressions within function calls - 3/4, 6/8; 3/4
+\satisfies   B-10 partial, cases 2/5
+
+\fn          int mcdc026c (int a, int b, int c, int d, int e)
+\details     Boolean expressions within function calls - 3/4, 5/8, 5/8;3/4
+\satisfies   B-10 partial, cases 3/5
+
+\fn          int mcdc026d (int a, int b, int c, int d, int e)
+\details     nested Booleans within function calls - 2/4, 3/4, 4/6, 2/4;4/6;3/4
+\satisfies   B-10 partial, cases 4/5
+
+\fn          int mcdc026e (int a, int b, int c, int d, int e)
+\details     nested Booleans within function calls -3/4, 3/4, 3/4, 4/4, (3/4, 3/4, 4/4, 3/4)
+\satisfies   B-10 partial, cases 5/5
+
+\fn          void mcdc027a (int a)
+\details     inlined conditional into function without conditional
+\satisfies   C-20 partial, cases 1/12
+
+\fn          void mcdc027b (int a)
+\details     inlined conditional into function with conditional
+\satisfies   C-20 partial, cases 2/12
+
+\fn          void mcdc027c (int a, int b)
+\details     inlined conditional into function with multiple conditionals
+\satisfies   C-20 partial, cases 3/12
+
+*/
+
+

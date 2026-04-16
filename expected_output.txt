@@ -1,0 +1,499 @@
+rm -f gcc-mcdc-ver-tests-utassert_testrunner
+gcc -c -std=c17 -Wall -Wstrict-prototypes -Wundef -DSOFTWARE_LITTLE_BIT_ORDER -D_EL -D_ix86_ -DUT_VERBOSE -I. -I../ut-assert-minimal/inc/  gcc-mcdc-ver-tests-utassert_testrunner.c ../ut-assert-minimal/src/*.c  gcc-mcdc-ver-tests-utassert_testrunner.c
+gcc   gcc-mcdc-ver-tests-utassert_testrunner.o utassert.o utlist.o uttest.o uttools.o   -o gcc-mcdc-ver-tests-utassert_testrunner
+./gcc-mcdc-ver-tests-utassert_testrunner	
+
+Program 'gcc-mcdc-mver-tests-utassert_testrunner', Copyright (C) 2026 Lorraine Prokop
+This program comes with ABSOLUTELY NO WARRANTY; for details type 'less license.txt'
+This is free software, and you are welcome to redistribute it under certain conditions.
+
+PASS: C1.1   gcc id:    basic Block - 1 statement - All Lines Covered
+PASS: C1.2   mcdc021a:  basic Block - 1 statement - No Lines Covered
+PASS: C2.1   gcc main:  basic Block - Stmt Sequence - All Lines Covered
+PASS: C2.2   add_C2_2:  basic Block - Stmt Sequence - No Lines Covered
+PASS: C3.1   mcdc008a:  while Loop - All Branches Covered
+PASS: C3.2   mcdc008b:  while Loop - 1 branch uncovered
+PASS: C3.3   mcdc008c:  while Loop - No Body 2/2 Branches	
+PASS: C3.4   mcdc008d:  while Loop - Multiterm - 8/8
+PASS: C3.5   mcdc009a:  while Loop - Multiterm - 3/4	
+PASS: C3.6   mcdc009b:  while Loop - Multiterm - b1/4,c2/4
+PASS: C3.7   mcdc010a:  for Loop   - 1 if      - 2/2;	
+PASS: C3.8   mcdc010b:  for Loop   - Atomic    - 2/2;	
+PASS: C3.9   mcdc010c:  for Loop   - Multistmt - 2/2;
+PASS: C3.10  mcdc010d:  for Loop   - Infinite  - 2/2;	
+PASS: C3.11  mcdc016a:  nested Loops - 2 deep  - 2/2,2/2;
+PASS: C3.12  mcdc016b:  nested Loops - 3 deep  - 2/2,2/2,2/2;	
+PASS: C3.13  mcdc016c:  nested Loops - 3 deep  - 2/2,1/2,2/2;
+PASS: C3.14  mcdc016d:  nested Loops - 3 deep  - 2/2,2/2,1/2;
+PASS: C3.15  mcdc017a:  do-while - atomic      - 2/2 
+PASS: C3.16  mcdc017b:  do-while - early break - 2/2	
+PASS: C3.17  mcdc017c:  do-while - embedded ifs- 1/2,2/2,2/2
+PASS: C3.18  mcdc017d:  for Loop - Infinite    - 0/6	
+PASS: C3.19  mcdc018c:  for Loop - Infinite    - 1/2,1/2	
+PASS: C3.20  mcdc021a:  while Loop - Infinite  - 0/6	
+PASS: C4.1   mcdc004a:  if - Atomic with else - 1/2
+PASS: C4.2   mcdc004b:  if - Atomic with else - 2/2
+PASS: C4.3   mcdc004c:  if - Atomic without else - 1/2
+PASS: C4.4   mcdc004d:  if - Nested, no else - 2/2, 1/4
+PASS: C4.5   mcdc004e:  if - Nested if, one else - 2/2, 1/4
+PASS: C4.6   mcdc004f:  if - elseif if - 1/2,0/2,0/2
+PASS: C4.7   mcdc007a:  if - Nested 3 deep+elseif- 2/2,1/2,2/2,1/2
+PASS: C4.8   mcdc012a:  if - sequential independent - 3/4,2/2
+PASS: C4.9   mcdc024f:  if - Nested 4 deep 1/2,0/2,0/2,0/2,0/2
+PASS: C4.10  add_C4_1:  if - void else
+PASS: C5.1   add_C5_1:  switch - no lines covered
+PASS: C5.2   add_C5_1:  switch - one case covered
+PASS: C5.3   add_C5_1:  switch - default case covered
+PASS: C5.4   add_C5_1:  switch - no break - all covered
+PASS: C5.5   add_C5_1:  switch - duffs alg - zero length edge
+PASS: C5.6   add_C5_1:  switch - duffs alg - single-element path
+PASS: C5.7   add_C5_1:  switch - duffs alg - mid chain entry
+PASS: C5.8   add_C5_1:  switch - duffs alg - highest entry case
+PASS: C5.9   add_C5_1:  switch - duffs alg - full loop, no remainder,  
+PASS: C5.10  add_C5_1:  switch - duffs alg - multi-iteration, all cases, remainder
+PASS: C6.1   mcdc008c:  break - while single simple - 2/2
+PASS: C6.2   mcdc016b:  break - if nested 3 deep - 2/2
+PASS: C6.3   mcdc017b:  break - do-while early exit - 2/2
+PASS: C7.1   mcdc007b:  goto - simple, & nested 3 deep - 2/2,2/2,1/2
+PASS: C7.2   mcdc007b:  goto - multiple, with labels - 2/2,2/2,1/2
+PASS: C7.3   mcdc021b:  goto - computed within function - 0/2
+PASS: C8.1   mcdc007b:  return Statement - single  
+PASS: C8.2   mcdc010c:  return Statement - double consecutive 
+PASS: C8.3   mcdc007c:  return Statement - triple 
+PASS: C8.4   mcdc007d:  return Statement - triple nested 
+PASS: C8.5   mcdc015a:  return Statement - early return one missing 
+PASS: C8.6   mcdc015b:  return Statement - early return all covered 
+PASS: C8.7   mcdc015c:  return Statement - early return nested all covered 
+PASS: C8.8   mcdc015d:  return Statement - early return 3 conds, 2 uncovered 
+PASS: C9.1   add_C9_1:  declaration generating code shows in coverage 
+PASS: C10.1  add_C10_1: partial evaluation due to short circuit-1 
+PASS: C10.2  add_C10_2: partial evaluation due to short circuit-2 
+PASS: C11.1  add_C11_1: partial evaluation of ternary conditional 
+PASS: C12.1  add_C12_1: basic block spanning lines-1 
+PASS: C12.2  add_C12_1: basic block spanning lines-2 
+PASS: C13.1  add_C13_1: basic block on a single line 
+PASS: C14.1  add_C14_1: multiple blocks on one line 
+PASS: C15.1  add_C15_1: indentation does not affect coverage reported 
+PASS: C16.1  add_C16_1: compiler optimization - high (-O3) DOES affect coverage - killed assignment
+PASS: C16.2  add_C16_2: compiler optimization - none (-O0) shows expected coverage - killed assignment
+PASS: C17.1  add_C17_1: compiler optimization - high (-O3) DOES affect coverage - subexpression optimization
+PASS: C17.2  add_C17_2: compiler optimization - none (-O0) shows expected coverage - subexpression optimization
+PASS: C18.1  add_C18_1: compiler optimization - high (-O3) DOES affect coverage - loop invariant optimization-1
+PASS: C18.2  add_C18_2: compiler optimization - none (-O3) DOES affect coverage - loop invariant optimization-2
+PASS: C18.3  add_C18_3: compiler optimization - none (-O0) shows expected coverage - loop invariant optimization-1
+PASS: C18.4  add_C18_4: compiler optimization - none (-O0) shows expected coverage - loop invariant optimization-2
+PASS: C19.1  add_C19_1: compiler optimization - high (-O3) DOES affect coverage - dead code elimination
+PASS: C19.2  add_C19_2: compiler optimization - none (-O0) shows expected coverage - dead code elimination
+PASS: C20.1  mcdc027a:  function inlining - no conditional
+PASS: C20.2  mcdc027b:  function inlining - one conditional
+PASS: C20.3  mcdc027c:  function inlining - multiple conditionals
+PASS: C20.4  add_C20_1: macro inlining - single boolean condition - left
+PASS: C20.5  add_C20_1: macro inlining - single boolean condition - right
+PASS: C20.6  add_C20_1: macro inlining - ternary operator - left
+PASS: C20.7  add_C20_1: macro inlining - ternary operator - right
+PASS: C20.8  add_C20_1: macro inlining - loop, embedded control flow - left
+PASS: C20.9  add_C20_1: macro inlining - loop, embedded control flow - right
+PASS: C20.10 add_C20_1: macro inlining - unreachable branch
+PASS: C20.11 add_C20_1: macro inlining - multi-statement macro - one branch covered
+PASS: C20.12 add_C20_1: macro inlining - compile time constant optimized out - see notes
+PASS: C21.1  add_C21_1: continue statement - simple for, branch left
+PASS: C21.2  add_C21_1: continue statement - simple for, branch right
+PASS: C21.3  add_C21_1: continue statement - in while loop, left
+PASS: C21.4  add_C21_1: continue statement - in while loop, right
+PASS: C21.5  add_C21_1: continue statement - in do-while loop, left
+PASS: C21.6  add_C21_1: continue statement - in do-while loop, right
+PASS: C21.7  add_C21_1: continue statement - nested loops - outer, left
+PASS: C21.8  add_C21_1: continue statement - nested loops - outer, right
+PASS: C21.9  add_C21_1: continue statement - nested loops - inner, left
+PASS: C21.10 add_C21_1: continue statement - nested loops - inner, right
+PASS: C21.11 add_C21_1: continue statement - multi-condition branch 0
+PASS: C21.12 add_C21_1: continue statement - multi-condition branch 1
+PASS: C21.13 add_C21_1: continue statement - multi-condition branch 2
+PASS: C21.14 add_C21_1: continue statement - multi-condition branch 3
+PASS: C21.15 add_C21_1: continue statement - with break - continue path left
+PASS: C21.16 add_C21_1: continue statement - with break - continue path right
+PASS: C21.17 add_C21_1: continue statement - with break - break path left
+PASS: C21.18 add_C21_1: continue statement - with break - break path right
+PASS: C21.19 add_C21_1: continue statement - inside switch - break branch
+PASS: C21.20 add_C21_1: continue statement - inside switch - default branch
+PASS: C21.21 add_C21_1: continue statement - inside macro - true branch
+PASS: C21.22 add_C21_1: continue statement - inside macro - false branch
+PASS: C22.1  add_C22_1: comma operator - no branching
+PASS: C22.2  add_C22_1: comma operator - inside if,  1 branch taken
+PASS: C22.3  add_C22_1: comma operator - inside for, left branch
+PASS: C22.4  add_C22_1: comma operator - inside for, right branch
+PASS: C22.5  add_C22_1: comma operator - inside macro, left branch
+PASS: C22.6  add_C22_1: comma operator - inside macro, right branch
+PASS: C22.7  add_C22_1: comma operator - left operand has ternary branch, left
+PASS: C22.8  add_C22_1: comma operator - left operand has ternary branch, right
+PASS: C22.9  add_C22_1: comma operator - right operand has ternary branch, left
+PASS: C22.10 add_C22_1: comma operator - right operand has ternary branch, right
+PASS: C22.11 add_C22_1: comma operator - inside return-like expression, left
+PASS: C22.12 add_C22_1: comma operator - inside return-like expression, right
+PASS: C22.13 add_C22_1: comma operator - unreachable branch, left
+PASS: C22.14 add_C22_1: comma operator - reachable branch, right
+PASS: C23.1 add_C23_1: conditional compilation - compiled out code shown as '-:', not '#####', see README.txt
+PASS: C23.2 add_C23_1: conditional compilation - compiled in left branch taken
+PASS: C23.3 add_C23_1: conditional compilation - compiled in right branch not taken
+PASS: B1.1   add_B1_1:  variable referencing in conditional - local variable
+PASS: B1.2   add_B1_1:  variable referencing in conditional - global variable
+PASS: B1.3   add_B1_1:  variable referencing in conditional - simple array
+PASS: B1.4   add_B1_1:  variable referencing in conditional - array of struct
+PASS: B1.5   add_B1_1:  variable referencing in conditional - struct pointer
+PASS: B1.6   add_B1_1:  variable referencing in conditional - struct element '.' notation
+PASS: B1.7   add_B1_1:  variable referencing in conditional - struct element '->' notation
+PASS: B1.8   add_B1_1:  variable assignment  in conditional - function return
+PASS: B1.9   add_B1_1:  variable assignment  in conditional - numeric literal
+PASS: B1.10  add_B1_1:  variable assignment  in conditional - struct element 
+PASS: B1.11  add_B1_1:  variable assignment  in conditional - assignment to address, optimized out, see notes
+PASS: B2.1   add_B2_1:  Boolean function return in conditional
+PASS: B3.1   add_B3_1:  constant Boolean variable in conditional
+PASS: B4.1   mcdc003a:  not operator - atomic 
+PASS: B4.2   mcdc022d:  not operator - on function call
+PASS: B4.3   add_B4_3:  not operator - multi-variable
+PASS: B5.1   mcdc001a:  or operator - 2 variable, right covered
+PASS: B5.2   mcdc001b:  or operator - 2 variable, left covered
+PASS: B5.3   mcdc001c:  or operator - 2 variable, all uncovered
+PASS: B5.4   mcdc001d:  or operator - 3 variable
+PASS: B5.5   mcdc002a:  and operator - 2 variable, right covered
+PASS: B5.6   mcdc002b:  and operator - 2 variable, left covered
+PASS: B5.7   mcdc002c:  and operator - 2 variable, all uncovered
+PASS: B5.8   mcdc002d:  and operator - 3 variable
+PASS: B6.1   add_B6_1:  relational operator == - left
+PASS: B6.2   add_B6_1:  relational operator == - right
+PASS: B6.3   add_B6_1:  relational operator != - left
+PASS: B6.4   add_B6_1:  relational operator != - right
+PASS: B6.5   add_B6_1:  relational operator >  - left
+PASS: B6.6   add_B6_1:  relational operator >  - right
+PASS: B6.7   add_B6_1:  relational operator <  - left
+PASS: B6.8   add_B6_1:  relational operator <  - right
+PASS: B6.9   add_B6_1:  relational operator <= - left
+PASS: B6.10  add_B6_1:  relational operator <= - right
+PASS: B6.11  add_B6_1:  relational operator >= - left
+PASS: B6.12  add_B6_1:  relational operator >= - right
+PASS: B7.1   mcdc017c:  ternary operator - all covered left 
+PASS: B7.2   mcdc017c:  ternary operator - all covered right 
+PASS: B7.3   mcdc018b:  ternary operator - OPTIMIZATION NOTE - 'n=a?0:0' equal literal return values condition optimization
+PASS: B7.4   mcdc020a:  ternary operator - OPTIMIZATION NOTE - 'a?1:0' specific case, argc=1, condition optimization 
+PASS: B7.5   mcdc020a:  ternary operator - atomic left 
+PASS: B7.6   mcdc020a:  ternary operator - atomic right 
+PASS: B7.7   mcdc020b:  ternary operator - 2 variable condition
+PASS: B7.8   mcdc020c:  ternary operator - nested ternaries left
+PASS: B7.9   mcdc020c:  ternary operator - nested ternaries right
+PASS: B7.10  mcdc020d:  ternary operator - ternary within &&/|| conditionals
+PASS: B8.1   add_B8_1:  Boolean in assignment, inside  'if' - logical or  '||'
+PASS: B8.2   add_B8_1:  Boolean in assignment, inside  'if' - logical and '&&'
+PASS: B8.3   add_B8_1:  Boolean in assignment, inside  'if' - relational operators '<'
+PASS: B8.4   add_B8_1:  Boolean in assignment  - inside return statement
+PASS: B8.5   add_B8_1:  Boolean in assignment, inside  'if' - relational identity 'a=(a==a)',  SEE NOTES:  no decisions shown
+PASS: B8.6   add_B8_1:  Boolean in assignment, outside 'if' - relational operators,            SEE NOTES: no decisions shown
+PASS: B8.7   add_B8_1:  Boolean in assignment, outside 'if' - logical not operator '!' 'a=!b', SEE NOTES: no decisions shown
+PASS: B9.1   mcdc008a:  Boolean in while loop  
+PASS: B9.2   mcdc010a:  Boolean in for loop  
+PASS: B9.3   mcdc017a:  Boolean in do-while loop  
+PASS: B10.1  mcdc026a:  Boolean as a function call parameter, && second last  
+PASS: B10.2  mcdc026b:  Boolean as a function call parameter, && last  
+PASS: B10.3  mcdc026c:  Boolean as a function call parameter  ||, &&
+PASS: B10.4  mcdc026d:  Boolean as a function call parameter  &&, ||, &&
+PASS: B10.5  mcdc026e:  Boolean as a function call parameter, nested function calls, &&, ||, &&
+PASS: B11.1  add_B11_1: implicit return - normal return
+PASS: B11.2  add_B11_2: implicit return - implicit
+PASS: A1.1   mcdc001a:  uncoupled Boolean conditions - or operator - 2 variable, cond 0 true uncovered
+PASS: A1.2   mcdc001a:  uncoupled Boolean conditions - or operator - 2 variable, cond 0 false uncovered 
+PASS: A1.3   mcdc001a:  uncoupled Boolean conditions - or operator - 2 variable, cond 1 false uncovered
+PASS: A1.4   mcdc001b:  uncoupled Boolean conditions - or operator - 2 variable, cond 0 false uncovered
+PASS: A1.5   mcdc001b:  uncoupled Boolean conditions - or operator - 2 variable, 3/4 conds covered
+PASS: A1.6   mcdc001c:  uncoupled Boolean conditions - or operator - 2 variable, all covered
+PASS: A1.7   mcdc001d:  uncoupled Boolean conditions - or operator - 3 variable - 2 conds covered
+PASS: A1.8   mcdc001d:  uncoupled Boolean conditions - or operator - 3 variable, cond 0 false uncovered 
+PASS: A1.9   mcdc001d:  uncoupled Boolean conditions - or operator - 3 variable, cond 1 false uncovered 
+PASS: A1.10  mcdc001d:  uncoupled Boolean conditions - or operator - 3 variable, cond 2 true uncovered 
+PASS: A1.11  mcdc001d:  uncoupled Boolean conditions - or operator - 3 variable, cond 2 false uncovered 
+PASS: A1.12  mcdc002a:  uncoupled Boolean conditions - and operator - 2 variable, cond 0 false uncovered
+PASS: A1.13  mcdc002a:  uncoupled Boolean conditions - and operator - 2 variable, cond 0 true uncovered
+PASS: A1.14  mcdc002a:  uncoupled Boolean conditions - and operator - 2 variable, cond 1 true uncovered
+PASS: A1.15  mcdc002b:  uncoupled Boolean conditions - and operator - 2 variable, cond 0 false uncovered
+PASS: A1.16  mcdc002b:  uncoupled Boolean conditions - and operator - 2 variable, 3/4 conds covered
+PASS: A1.17  mcdc002c:  uncoupled Boolean conditions - and operator - 2 variable, all covered
+PASS: A1.18  mcdc002d:  uncoupled Boolean conditions - and operator - 3 variable - cond 0 false uncovered
+PASS: A1.19  mcdc002d:  uncoupled Boolean conditions - and operator - 3 variable - cond 2 false uncovered
+PASS: A1.20  mcdc002d:  uncoupled Boolean conditions - and operator - 3 variable - 4/6 conds covered
+PASS: A1.21  mcdc003a:  uncoupled Boolean conditions - not operator - atomic, cond 0 false uncovered 
+PASS: A1.22  mcdc003a:  uncoupled Boolean conditions - not operator - atomic, cond 1 false  uncovered 
+PASS: A1.23  mcdc003a:  uncoupled Boolean conditions - not operator - atomic, 2/4 conds covered 
+PASS: A1.24  mcdc022d:  uncoupled Boolean conditions - not operator - on function call, cond 0 false uncovered
+PASS: A1.25  add_B4_3:  uncoupled Boolean conditions - not operator - multi-variable, cond 0 true uncovered
+PASS: A1.26  add_B4_3:  uncoupled Boolean conditions - not operator - multi-variable, cond 1 true uncovered
+PASS: A1.27  add_B4_3:  uncoupled Boolean conditions - not operator - multi-variable, cond 1 false uncovered
+PASS: A2.1   add_B6_1:  uncoupled Boolean conditions - relational operator == - cond 0 t uncovered
+PASS: A2.2   add_B6_1:  uncoupled Boolean conditions - relational operator != - cond 0 f uncovered
+PASS: A2.3   add_B6_1:  uncoupled Boolean conditions - relational operator >  - cond 0 t uncovered
+PASS: A2.4   add_B6_1:  uncoupled Boolean conditions - relational operator <  - cond 0 f uncovered
+PASS: A2.5   add_B6_1:  uncoupled Boolean conditions - relational operator <= - cond 0 f uncovered
+PASS: A2.6   add_B6_1:  uncoupled Boolean conditions - relational operator >= - cond 0 t uncovered
+PASS: A2.7   add_A2_1:  uncoupled Boolean conditions - relational operator == - cond 0 f uncovered
+PASS: A2.8   add_A2_1:  uncoupled Boolean conditions - relational operator != - cond 0 t uncovered
+PASS: A2.9   add_A2_1:  uncoupled Boolean conditions - relational operator >  - cond 0 f uncovered
+PASS: A2.10  add_A2_1:  uncoupled Boolean conditions - relational operator <  - cond 0 t uncovered
+PASS: A2.11  add_A2_1:  uncoupled Boolean conditions - relational operator <= - cond 0 t uncovered
+PASS: A2.12  add_A2_1:  uncoupled Boolean conditions - relational operator >= - cond 0 f uncovered
+PASS: A3.1   mcdc005b:  uncoupled Boolean conditions - short circuiting, 4 var, cond 0 short circuited for t
+PASS: A3.2   mcdc005b:  uncoupled Boolean conditions - short circuiting, 4 var, cond 0 short circuited for f
+PASS: A3.3   mcdc005b:  uncoupled Boolean conditions - short circuiting, 4 var, cond 1 short circuited for t
+PASS: A3.4   mcdc005b:  uncoupled Boolean conditions - short circuiting, 4 var, cond 2 short circuited for t
+PASS: A3.5   mcdc005b:  uncoupled Boolean conditions - short circuiting, 4 var, cond 3 short circuited for t
+PASS: A3.6   mcdc023a:  uncoupled Boolean conditions - short circuiting, 1/14 conds covered 
+PASS: A3.7   mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 t uncovered 
+PASS: A3.8   mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 f uncovered 
+PASS: A3.9   mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 f uncovered 
+PASS: A3.10  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 t uncovered 
+PASS: A3.11  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 f uncovered 
+PASS: A3.12  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 t uncovered 
+PASS: A3.13  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 f uncovered 
+PASS: A3.14  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 t uncovered 
+PASS: A3.15  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 f uncovered 
+PASS: A3.16  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 t uncovered 
+PASS: A3.17  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 f uncovered 
+PASS: A3.18  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 t uncovered 
+PASS: A3.19  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 f uncovered 
+PASS: A3.20  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 t uncovered 
+PASS: A3.21  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 f uncovered 
+PASS: A3.22  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 t uncovered 
+PASS: A3.23  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 f uncovered 
+PASS: A3.24  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 t uncovered 
+PASS: A3.25  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 f uncovered 
+PASS: A3.26  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 t uncovered 
+PASS: A3.27  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 f uncovered 
+PASS: A3.28  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 t uncovered 
+PASS: A3.29  mcdc023a:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 f uncovered 
+PASS: A3.30  mcdc023b:  uncoupled Boolean conditions - short circuiting, 4/14 conds covered 
+PASS: A3.31  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 t uncovered 
+PASS: A3.32  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 f uncovered 
+PASS: A3.33  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 t uncovered 
+PASS: A3.34  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 f uncovered 
+PASS: A3.35  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 t uncovered 
+PASS: A3.36  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 t uncovered 
+PASS: A3.37  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 f uncovered 
+PASS: A3.38  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 t uncovered 
+PASS: A3.39  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 f uncovered 
+PASS: A3.40  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 t uncovered 
+PASS: A3.41  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 f uncovered 
+PASS: A3.42  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 t uncovered 
+PASS: A3.43  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 t uncovered 
+PASS: A3.44  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 f uncovered 
+PASS: A3.45  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 t uncovered 
+PASS: A3.46  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 f uncovered 
+PASS: A3.47  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 t uncovered 
+PASS: A3.48  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 f uncovered 
+PASS: A3.49  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 t uncovered 
+PASS: A3.50  mcdc023b:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 f uncovered 
+PASS: A3.51  mcdc023c:  uncoupled Boolean conditions - short circuiting, 4/14 conds covered 
+PASS: A3.52  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 t uncovered 
+PASS: A3.53  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 f uncovered 
+PASS: A3.54  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 t uncovered 
+PASS: A3.55  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 f uncovered 
+PASS: A3.56  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 t uncovered 
+PASS: A3.57  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 f uncovered 
+PASS: A3.58  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 t uncovered 
+PASS: A3.59  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 f uncovered 
+PASS: A3.60  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 t uncovered 
+PASS: A3.61  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 f uncovered 
+PASS: A3.62  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 t uncovered 
+PASS: A3.63  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 f uncovered 
+PASS: A3.64  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 t uncovered 
+PASS: A3.65  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 f uncovered 
+PASS: A3.66  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 t uncovered 
+PASS: A3.67  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 f uncovered 
+PASS: A3.68  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 t uncovered 
+PASS: A3.69  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 f uncovered 
+PASS: A3.70  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 t uncovered 
+PASS: A3.71  mcdc023c:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 t uncovered 
+PASS: A3.72  mcdc023d:  uncoupled Boolean conditions - short circuiting, 4/14 conds covered 
+PASS: A3.73  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 t uncovered 
+PASS: A3.74  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 f uncovered 
+PASS: A3.75  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 t uncovered 
+PASS: A3.76  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 f uncovered 
+PASS: A3.77  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 t uncovered 
+PASS: A3.78  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 f uncovered 
+PASS: A3.79  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 t uncovered 
+PASS: A3.80  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 f uncovered 
+PASS: A3.81  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 t uncovered 
+PASS: A3.82  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 f uncovered 
+PASS: A3.83  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 t uncovered 
+PASS: A3.84  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 f uncovered 
+PASS: A3.85  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 t uncovered 
+PASS: A3.86  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 f uncovered 
+PASS: A3.87  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 t uncovered 
+PASS: A3.88  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 t uncovered 
+PASS: A3.89  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 t uncovered 
+PASS: A3.90  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 f uncovered 
+PASS: A3.91  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 t uncovered 
+PASS: A3.92  mcdc023d:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 f uncovered 
+PASS: A3.93  mcdc023e:  uncoupled Boolean conditions - short circuiting, 5/14 conds covered 
+PASS: A3.94  mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 t uncovered 
+PASS: A3.95  mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 f uncovered 
+PASS: A3.96  mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 t uncovered 
+PASS: A3.97  mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 f uncovered 
+PASS: A3.98  mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 t uncovered 
+PASS: A3.99  mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 f uncovered 
+PASS: A3.100 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 t uncovered 
+PASS: A3.101 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 f uncovered 
+PASS: A3.102 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 f uncovered 
+PASS: A3.103 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 f uncovered 
+PASS: A3.104 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 t uncovered 
+PASS: A3.105 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 f uncovered 
+PASS: A3.106 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 f uncovered 
+PASS: A3.107 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 f uncovered 
+PASS: A3.108 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 t uncovered 
+PASS: A3.109 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 f uncovered 
+PASS: A3.110 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 f uncovered 
+PASS: A3.111 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 t uncovered 
+PASS: A3.112 mcdc023e:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 f uncovered 
+PASS: A3.113 mcdc023f:  uncoupled Boolean conditions - short circuiting, 5/14 conds covered 
+PASS: A3.114 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 t uncovered 
+PASS: A3.115 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 f uncovered 
+PASS: A3.116 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 t uncovered 
+PASS: A3.117 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 t uncovered 
+PASS: A3.118 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 f uncovered 
+PASS: A3.119 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 t uncovered 
+PASS: A3.120 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 f uncovered 
+PASS: A3.121 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 t uncovered 
+PASS: A3.122 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 t uncovered 
+PASS: A3.123 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 t uncovered 
+PASS: A3.124 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 f uncovered 
+PASS: A3.125 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 t uncovered 
+PASS: A3.126 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 f uncovered 
+PASS: A3.127 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 t uncovered 
+PASS: A3.128 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 f uncovered 
+PASS: A3.129 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 t uncovered 
+PASS: A3.130 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 f uncovered 
+PASS: A3.131 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 t uncovered 
+PASS: A3.132 mcdc023f:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 f uncovered 
+PASS: A3.133 mcdc023g:  uncoupled Boolean conditions - short circuiting, 5/14 conds covered 
+PASS: A3.134 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 0 t uncovered 
+PASS: A3.135 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 1 f uncovered 
+PASS: A3.136 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 t uncovered 
+PASS: A3.137 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 2 f uncovered 
+PASS: A3.138 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 3 t uncovered 
+PASS: A3.139 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 t uncovered 
+PASS: A3.140 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 4 f uncovered 
+PASS: A3.141 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 5 t uncovered 
+PASS: A3.142 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 6 t uncovered 
+PASS: A3.143 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 t uncovered 
+PASS: A3.144 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 7 f uncovered 
+PASS: A3.145 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 t uncovered 
+PASS: A3.146 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 8 f uncovered 
+PASS: A3.147 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 t uncovered 
+PASS: A3.148 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 9 f uncovered 
+PASS: A3.149 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 t uncovered 
+PASS: A3.150 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 10 f uncovered 
+PASS: A3.151 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 t uncovered 
+PASS: A3.152 mcdc023g:  uncoupled Boolean conditions - short circuiting, 14 var, cond 11 f uncovered 
+PASS: A4.1   add_A4_1:  coupled Boolean conditions - xor 2 variable, all covered, from AR-06-54 A.1.2.2.1 Ex1
+PASS: A4.2   add_A4_2:  coupled Boolean conditions - majority 3 variable, all covered, from AR-06-54 A.1.2.2.1 Ex2
+PASS: A4.3   mcdc013a:  coupled Boolean conditions - 3 var unattainable MCDC coverage even using all combinations 
+PASS: A5.1   add_A5_1:  coupled Boolean conditions - relational operators - atomic - OPTIMIZATION NOTE - 'a == a' identity optimization
+PASS: A5.2   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '==' lhs
+PASS: A5.3   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '==' rhs
+PASS: A5.4   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '!=' lhs
+PASS: A5.5   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '!=' rhs
+PASS: A5.6   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '>'  lhs
+PASS: A5.7   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '>'  rhs
+PASS: A5.8   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '<'  lhs
+PASS: A5.9   add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '<'  rhs
+PASS: A5.10  add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '<=' lhs
+PASS: A5.11  add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '<=' rhs
+PASS: A5.12  add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '>=' lhs
+PASS: A5.13  add_A5_1:  coupled Boolean conditions - relational operators - 2 variable - '>=' rhs
+PASS: A5.14  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '==' rhs
+PASS: A5.15  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '==' lhs
+PASS: A5.16  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '==' mid
+PASS: A5.17  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '!=' rhs
+PASS: A5.18  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '!=' lhs
+PASS: A5.19  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '!=' mid
+PASS: A5.20  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '>'  rhs
+PASS: A5.21  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '>'  lhs
+PASS: A5.22  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '>'  mid
+PASS: A5.23  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '<'  rhs
+PASS: A5.24  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '<'  lhs
+PASS: A5.25  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '<'  mid
+PASS: A5.26  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '<=' rhs
+PASS: A5.27  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '<=' lhs
+PASS: A5.28  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '<=' mid
+PASS: A5.29  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '>=' rhs
+PASS: A5.30  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '>=' lhs
+PASS: A5.31  add_A5_1:  coupled Boolean conditions - relational operators - 3 variable - '>=' mid
+PASS: A6.1   add_A6_1:  coupled Boolean conditions - short circuiting- 2 var basic, A first, from AR-06-54 A.1.2.2.3 Ex1
+PASS: A6.2   add_A6_2:  coupled Boolean conditions - short circuiting- 2 var basic, B first, from AR-06-54 A.1.2.2.3 Ex1
+PASS: A6.3   add_A6_3:  coupled Boolean conditions - short circuiting- 3 var multi cond nested, 1 missing, from AR-06-54 A.1.2.2.3 Ex2
+PASS: A6.4   add_A6_4:  coupled Boolean conditions - short circuiting- 3 var multi cond nested, 0 missing, from AR-06-54 A.1.2.2.3 Ex2
+PASS: A7.1   mcdc014a:  64 conditions covered
+PASS: A7.2   mcdc019a:  65th condition uncovered - 'pragma GCC diagnostic ignored -Wcoverage-too-many-conditions' used to suppress
+PASS: A8.1   add_A8_1:  non tree-like - ((a && b) || c), cond 0 f uncovered, did not work prior to gcc 14
+PASS: A8.2   add_A8_1:  non tree-like - ((a && b) || c), cond 1 f uncovered, did not work prior to gcc 14
+PASS: A8.3   add_A8_1:  non tree-like - ((a && b) || c), cond 2 f uncovered, did not work prior to gcc 14
+PASS: A8.4   add_A8_1:  non tree-like - ((a && b) || c), 3/6 conds covered,  loop at beginning - did not work prior to gcc 14
+PASS: A8.5   add_A8_1:  non tree-like - (d && ((a && b) || c), 4/8 conds covered,  loop in middle
+PASS: A8.6   add_A8_1:  non tree-like - (d ((a && b) || c) && e),5/10 conds covered,  two loops 
+PASS: A9.1   mcdc005a:  stress - mixing && and ||
+PASS: A9.2   mcdc005e:  stress - && within relationals
+PASS: A9.3   mcdc005e:  stress - || within relationals
+PASS: A9.4   mcdc006a:  stress - nested conditionals 2 deep - 2/2
+PASS: A9.5   mcdc006a:  stress - nested conditionals 2 deep - 3/4
+PASS: A9.6   mcdc006a:  stress - nested conditionals 2 deep - 2/4
+PASS: A9.7   mcdc006b:  stress - nested conditionals 3 deep - 2/2 blk 2
+PASS: A9.8   mcdc006b:  stress - nested conditionals 3 deep - 2/2 blk 3
+PASS: A9.9   mcdc006b:  stress - nested conditionals 3 deep - 2/2 blk 4
+PASS: A9.10  mcdc006c:  stress - nested conditionals 3 deep - 2/2 blk 2
+PASS: A9.11  mcdc006c:  stress - nested conditionals 3 deep - 2/2 blk 3
+PASS: A9.12  mcdc006c:  stress - nested conditionals 3 deep - 2/2 blk 4
+PASS: A9.13  mcdc006d:  stress - nested conditionals 3 deep - 1/2 blk 2
+PASS: A9.14  mcdc006d:  stress - nested conditionals 3 deep - 1/2 blk 3
+PASS: A9.15  mcdc006d:  stress - nested conditionals 3 deep - 2/2 blk 4
+PASS: A9.16  mcdc006e:  stress - 4 variable - 4/8 conds taken
+PASS: A9.17  mcdc011a:  stress - conditionals without control flow
+PASS: A9.18  mcdc021d:  stress - edge contraction 'a && id(b)' 1/4 blk 2
+PASS: A9.19  mcdc021d:  stress - edge contraction 'a && id(b)' 1/4 blk 6
+PASS: A9.20  mcdc022a:  stress - edge contraction - real world, linux arch/x86/tools/relocs.c
+PASS: A9.21  mcdc022b:  stress - edge contraction - real world, linux arch/x86/tools/relocs.c
+PASS: A9.22  mcdc022c:  stress - mixed func,!,for,nested - real world, linux arch/x86/events/intel/ds.c, blk 2
+PASS: A9.23  mcdc022c:  stress - mixed func,!,for,nested - real world, linux arch/x86/events/intel/ds.c, blk 5
+PASS: A9.24  mcdc022c:  stress - mixed func,!,for,nested - real world, linux arch/x86/events/intel/ds.c, blk 9
+PASS: A9.25  mcdc022e:  stress - masking - real world from openssl-3.0.1/crypto/cmp/cmp_msg.c ossl_cmp_error_new(), blk 2
+PASS: A9.26  mcdc022e:  stress - masking - real world from openssl-3.0.1/crypto/cmp/cmp_msg.c ossl_cmp_error_new(), blk 4
+PASS: A9.27  mcdc022e:  stress - masking - real world from openssl-3.0.1/crypto/cmp/cmp_msg.c ossl_cmp_error_new(), blk 8
+PASS: A9.28  mcdc022e:  stress - masking - real world from openssl-3.0.1/crypto/cmp/cmp_msg.c ossl_cmp_error_new()
+PASS: A9.29  mcdc024a:  stress - gotos,returns,labels - reference, no labels, blk 2
+PASS: A9.30  mcdc024a:  stress - gotos,returns,labels - reference, no labels, blk 6
+PASS: A9.31  mcdc024b:  stress - gotos,returns,labels - 2 labels, blk 2
+PASS: A9.32  mcdc024b:  stress - gotos,returns,labels - 2 labels, blk 7
+PASS: A9.33  mcdc024c:  stress - gotos,returns,labels - 2 labels, blk 2
+PASS: A9.34  mcdc024c:  stress - gotos,returns,labels - 2 labels, blk 8
+PASS: A9.35  mcdc024d:  stress - gotos,returns,labels - 4 labels, blk 2
+PASS: A9.36  mcdc024d:  stress - gotos,returns,labels - 4 labels, blk 9
+PASS: A9.37  mcdc024d:  stress - gotos,returns,labels - 4 labels, missing lines
+PASS: A9.38  mcdc024e:  stress - elseless nested if return, blk 2
+PASS: A9.39  mcdc024e:  stress - elseless nested if return, blk 4
+PASS: A9.40  mcdc024e:  stress - elseless nested if return, blk 7
+PASS: A9.41  mcdc024g:  stress - nested elseless if, blk 2
+PASS: A9.42  mcdc024g:  stress - nested elseless if, blk 4
+PASS: A9.43  mcdc024g:  stress - nested elseless if, blk 5
+PASS: A9.44  mcdc024g:  stress - nested elseless if, blk 6
+PASS: A9.45  mcdc024h:  stress - nested if, blk 2
+PASS: A9.46  mcdc024h:  stress - nested if, blk 4
+PASS: A9.47  mcdc024h:  stress - nested if, blk 6
+PASS: A9.48  mcdc024h:  stress - nested if, blk 7
+PASS: A9.49  mcdc024h:  stress - nested if, blk 9
+PASS: A9.50  mcdc024i:  stress - nested return, labels, blk 2
+PASS: A9.51  mcdc024i:  stress - nested return, labels, blk 6
+PASS: A9.52  mcdc024i:  stress - nested return, labels, blk 9
+PASS: A9.53  mcdc024i:  stress - nested return, labels, blk 11
+PASS: A9.54  mcdc024i:  stress - nested return, labels, blk 12
+PASS: A9.55  mcdc024i:  stress - nested return, labels, blk 13
+PASS: A9.56  mcdc025a:  stress - tree loop & bypass, real world from alsa-lib 1.2.8 src/control/control.c, blk 2
+PASS: A9.57  mcdc025a:  stress - tree loop & bypass, real world from alsa-lib 1.2.8 src/control/control.c, blk 2
+PASS: A9.58  mcdc025a:  stress - tree loop & bypass, real world from alsa-lib 1.2.8 src/control/control.c, blk 2
+
+Tests Executed:    43
+Assert Pass Count: 486
+Assert Fail Count: 0
