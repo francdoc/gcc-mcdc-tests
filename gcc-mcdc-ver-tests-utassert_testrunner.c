@@ -1263,7 +1263,7 @@ void Test_Case_C1(void)  /* basic block - no sequence of statements */
     /* function "id" only is 1 line and no sequence of statements, and is called in the code, so should show 0 uncovered */
     UtAssert_True (query_function_stats(&db, "id", LINES_NOT_COVERED) == 0, 	     "C1.1   gcc id:    basic Block - 1 statement - All Lines Covered");  /* all lines are covered */
 	
-	/* function mcdc21a is a 1 line function with finite while loop that is never called,  */
+	/* function mcdc021a is a 1 line function with finite while loop that is never called,  */
 	/* so using it to show basic statement coverage */
 	UtAssert_True (query_function_stats(&db, "mcdc021a", LINES_NOT_COVERED) == 2,    "C1.2   mcdc021a:  basic Block - 1 statement - No Lines Covered"); /* no lines covered */
 } 
@@ -1287,7 +1287,7 @@ void Test_Case_C2(void) /* basic block - sequence of statements */
     /* function "main" in the gcc suite is a sequence of statements that should be 100% covered */
     UtAssert_True (query_function_stats(&db, "main", LINES_NOT_COVERED) == 0, 		 "C2.1   gcc main:  basic Block - Stmt Sequence - All Lines Covered");  /* all lines are covered */
 	
-	/* function mcdc21a is a 2 line function with finite while loop that is never called,  */
+	/* function mcdc021a is a 2 line function with finite while loop that is never called,  */
 	/* so using it to show basic statement coverage */
 	UtAssert_True (query_function_stats(&db_add, "C2_2", LINES_NOT_COVERED) == 5,	 "C2.2   add_C2_2:  basic Block - Stmt Sequence - No Lines Covered"); /* one line uncovered */
 } 
@@ -1365,7 +1365,7 @@ void Test_Case_C3(void) /* tests for "for", "do-while", "while" loops */
  **  PASS: C4.7   mcdc007a:  if - Nested 3 deep+elseif- 2/2,1/2,2/2,1/2
  **  PASS: C4.8   mcdc012a:  if - sequential independent - 3/4,2/2
  **  PASS: C4.9   mcdc024f:  if - Nested 4 deep 1/2,0/2,0/2,0/2,0/2
- **  PASS: C4.10  add_C4_1:  if - Danglng else
+ **  PASS: C4.10  add_C4_1:  if - Dangling else
  ** \endverbatim
  *//*=========================================================================*/
 
@@ -2994,7 +2994,7 @@ int main(void)
 	UtTest_Add(Test_Case_C18, Test_Setup, Test_TearDown, "Test_Case_C18- compiler optimization effect on coverage - loop invariant optimization"); 
 	UtTest_Add(Test_Case_C19, Test_Setup, Test_TearDown, "Test_Case_C19- compiler optimization effect on coverage - dead code elimination"); 
 	UtTest_Add(Test_Case_C20, Test_Setup, Test_TearDown, "Test_Case_C20- inlining"); 
-	UtTest_Add(Test_Case_C21, Test_Setup, Test_TearDown, "Test_Case_C21- continue statatement"); 
+	UtTest_Add(Test_Case_C21, Test_Setup, Test_TearDown, "Test_Case_C21- continue statement"); 
 	UtTest_Add(Test_Case_C22, Test_Setup, Test_TearDown, "Test_Case_C22- comma operator "); 
 	UtTest_Add(Test_Case_C23, Test_Setup, Test_TearDown, "Test_Case_C23- conditional compilation "); 
 	

@@ -25,11 +25,11 @@ software usage criticalities and as well as to align with FAA standards.
   DAL-A.  The DAL-A tests include all tests in the suite. Artifacts are intended 
   to comply with DO-330 and DO-178B Tool Qualification FAA standards.  
 - Doxygen-style comments are included for requirements-to-test bidirectional 
-  traceabilty and external design documentation generation
+  traceability and external design documentation generation
 - The included requirements set is based on an and Ada version published in 2007
   through an FAA-sponsored 'Software Verification Tools Assessment Study', 
-  at the following publically-available reference:  DOT/FAA/AR-06/54. 
-- This software is released under the GNU Public License Agremenet and contains
+  at the following publicly-available reference:  DOT/FAA/AR-06/54. 
+- This software is released under the GNU Public License Agreement and contains
   no warranties, see below. 
 - This software is summarized further by the author's youtube video: TBD
   and in the following IEEE publication:  TBD
@@ -48,7 +48,7 @@ software usage criticalities and as well as to align with FAA standards.
    2) utassert - The testrunner runs with NASA's Open Source 'utassert' 
 	  unit test framework v. 1.1.0, unaltered from its original form, and is 
 	  redistributed here.  It is released under the NASA Open Source Agreement 
-	  (NOSA), and is publically available at 
+	  (NOSA), and is publicly available at 
 	  https://sourceforge.net/projects/cfs-ut-assert/files/.  Only the one 
 	  testrunner program itself uses utassert function calls, and only the 
 	  "utAssertTrue()" call is used in the tests themselves, so these tests 	  
@@ -83,7 +83,7 @@ Step 4) Verify Expected Results:  The testrunner will run one overall test
 				Assert Pass Count: 421
 				Assert Fail Count: 0
 				
-Command Line Shortcuts:   The files in this distrubuiton contain makefiles to
+Command Line Shortcuts:   The files in this distribution contain makefiles to
 perform the steps above, including generating documentation with the following 
 four commands:
 	$ make -f makefile-gcc-tests
@@ -103,7 +103,7 @@ Primary contributions of this work:
 * requirements+trace.dox - The set of C language doxygen-style requirements 
   used for this testsuite.  Doxygen-based requirements list used to generate 
   traceability information in doxygen output. This file also contains the 
-  function list and traceabilty information for the gcc-owned test file
+  function list and traceability information for the gcc-owned test file
   'gcc_testsuite_gcov-19.c' so that the gcc file is unmodified, yet documented
   externally for traceability
 * Requirement-Mapping.pdf - pdf version of the requirements, mapping C 
@@ -144,7 +144,7 @@ doxygen-related files:
 --------------------------------------------------------------------------------
 * C Language Version -
 The version of the C language standard chosen is C17, also known as 
-iso9899:2017.  GCC verison 14.1 by default compiles C with GCC extensions,
+iso9899:2017.  GCC version 14.1 by default compiles C with GCC extensions,
 so the default should be changed to -std=c17.  Some of the gcc extensions effect 
 syntax and conditionals, such as the ternary operator. The GCC extensions were 
 not included in this test suite.
@@ -157,7 +157,7 @@ characteristic and usage constraint.  Running gcc with optimizations 'on' found
 that optimizations were not counted as missing lines such as with '#####',
 but they are marked as unexecuted with a '-:', so they can be 
 detected.  The recommended approach is to use gcc's optimization reports 
-separately, generated  with ' -fopt-info-all' to understand compiler behavior 
+separately, generated with ' -fopt-info-all' to understand compiler behavior 
 regarding optimizations and use coverage reports with no optimization to 
 assess test coverage. Also, all lines with '-:' can be inspected in coverage
 output.
