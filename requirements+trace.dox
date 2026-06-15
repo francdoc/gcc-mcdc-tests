@@ -218,11 +218,11 @@ called 'requirements+trace.dox'.
 \satisfies   A-9 partial, cases 7-9/65
 
 \fn          void mcdc006c (int a, int b, int c)
-\details     next condtiionals 3 deep, 2/2, 2/2, 2/2
+\details     next conditionals 3 deep, 2/2, 2/2, 2/2
 \satisfies   A-9 partial, cases 10-12/65
 
 \fn          void mcdc006d (int a, int b, int c)
-\details     next condtiionals 3 deep, 1/2, 1/2, 2/2
+\details     next conditionals 3 deep, 1/2, 1/2, 2/2
 \satisfies   A-9 partial, cases 13-15/65
 
 \fn          void mcdc006e (int a, int b, int c, int d)
