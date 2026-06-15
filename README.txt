@@ -43,7 +43,7 @@ software usage criticalities and as well as to align with FAA standards.
       is available under GNU Public license from gcc's github site following 
 	  this tree:  [gcc.git] / gcc / testsuite / gcc.misc-tests / gcov-19.c.
 	  It is used preferentially to test requirements if a test exists, then 
-	  supplemented by 'additionat_gcc_teststuie.c' for comprehensive 
+	  supplemented by 'additional_gcc_testsuite.c' for comprehensive 
 	  requirements-based verification testing.
    2) utassert - The testrunner runs with NASA's Open Source 'utassert' 
 	  unit test framework v. 1.1.0, unaltered from its original form, and is 
