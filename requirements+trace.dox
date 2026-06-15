@@ -243,7 +243,7 @@ called 'requirements+trace.dox'.
 \satisfies   C-8 partial, cases 3/8
 
 \fn          int mcdc007d (int a, int b, int c, int d, int e)
-\details     nested if, multivariaable, multple return, 1/2, 0/4, 0/2, 1/2
+\details     nested if, multivariaable, multiple return, 1/2, 0/4, 0/2, 1/2
 \satisfies   C-8 partial, cases 4/8
 
 \fn          void mcdc008a (int a)
