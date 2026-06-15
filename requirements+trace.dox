@@ -295,7 +295,7 @@ called 'requirements+trace.dox'.
 \satisfies   A-9 partial, cases 17/65
 
 \fn          void mcdc012a (int a, int b, int c)
-\details     if - sequencial expressions handles independent, 3/4, 2/2
+\details     if - sequential expressions handled independent, 3/4, 2/2
 \satisfies   C-4 partial, cases 8/10
 
 \fn          void mcdc013a (int a, int b, int c)
