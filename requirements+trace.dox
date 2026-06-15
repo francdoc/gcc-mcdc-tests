@@ -433,23 +433,23 @@ called 'requirements+trace.dox'.
 \satisfies   A-3 partial, cases 30-50/152
 
 \fn          void mcdc023c (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     mastking test - 13 variable - 4/24 (different variables masked)
+\details     masking test - 13 variable - 4/24 (different variables masked)
 \satisfies   A-3 partial, cases 51-71/152
 
 \fn          void mcdc023d (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variabale 4/24 (different variables masked)
+\details     masking test - 13 variable 4/24 (different variables masked)
 \satisfies   A-3 partial, cases 72-92/152
 
 \fn          void mcdc023e (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variabale 5/24
+\details     masking test - 13 variable 5/24
 \satisfies   A-3 partial, cases 93-112/152
 
 \fn          void mcdc023f (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variabale 5/24 (different variables masked)
+\details     masking test - 13 variable 5/24 (different variables masked)
 \satisfies   A-3 partial, cases 113-132/152
 
 \fn          void mcdc023g (int a, int b, int c, int d, int e, int f, int g, int h, int i, int k, int l, int m, int n)
-\details     masking test - 13 variabale 5/24 (different variables masked)
+\details     masking test - 13 variable 5/24 (different variables masked)
 \satisfies   A-3 partial, cases 133-152/152
 
 \fn          void mcdc024a (int a, int b)
@@ -485,7 +485,7 @@ called 'requirements+trace.dox'.
 \satisfies   A-9 partial, cases 45,57-59/65
 
 \fn          int mcdc024i (int a, int b, int c)
-\details     gotos/lables, multiple returns, 3 var, nested, 2/2, 2/2, 1/2, 1/2, 0/2, 0/2
+\details     gotos/labels, multiple returns, 3 var, nested, 2/2, 2/2, 1/2, 1/2, 0/2, 0/2
 \satisfies   A-9 partial, cases 60-65/65
 
 \fn          int mcdc025a (int a, int b, int c)
