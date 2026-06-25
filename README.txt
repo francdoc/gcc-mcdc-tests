@@ -62,10 +62,11 @@ software usage criticalities and as well as to align with FAA standards.
 The overall usage is as follows: 
 
 Step 1) gcc (v14.1 or later) compile the testsuites (gcc_testsuite_gcov-19.c and 
-        additional_gcc_testsuite.c) with no optimization, c-17, and coverage:  
-        -
-		- see makefile 'makefile-gcc-tests' and 'makefile-add-tests' or
-		  can run 'make -f makefile-gcc-tests' and 'make -f makefile-add-tests'
+        additional_gcc_testsuite.c) with no optimization, c-17, and coverage 
+		similar to the following:  
+        gcc -std=c17 -Wall -Wstrict-prototypes -DUT_VERBOSE -O0 -fprofile_arcs \
+		    -ftest-coverage -fcondition-coverage
+		- see makefile 'makefile-gcc-tests' and 'makefile-add-tests' 
 Step 2) Run gcov on both testsuites above to generate '.gcov' files used as input 
         to 'gcc-mcdc-ver-tests-utassert_testrunner.c, Ex.
         gcov -abcdfgH additional_gcc_testsuite.c -o 
