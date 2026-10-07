@@ -2961,7 +2961,7 @@ int main(void)
 {   
     int return_value = -1;
 	
-//	print_gpl_banner();     // prints the GNU Public License banner as specified  by gcu.org
+	print_gpl_banner();     // prints the GNU Public License banner as specified  by gcu.org
 
     // print system and version information for record keeping
 
