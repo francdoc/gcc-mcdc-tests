@@ -1,3 +1,9 @@
+# gcc-mcdc-tests
+
+[![DOI](https://zenodo.org/badge/1204275360.svg)](https://doi.org/10.5281/zenodo.23287624)
+
+Archive Link: https://doi.org/10.5281/zenodo.23287624
+
 ================================================================================
 Readme.txt:  GCC MC/DC Coverage Requirements & Testsuite
 ================================================================================
