@@ -1,15 +1,18 @@
-# gcc-mcdc-tests
+## gcc-mcdc-tests
 
 [![DOI](https://zenodo.org/badge/1204275360.svg)](https://doi.org/10.5281/zenodo.23287624)
 
 Archive Link: https://doi.org/10.5281/zenodo.23287624
 
 ---
-GCC MC/DC Coverage Requirements & Testsuite
--------------------------------------------------------------------------------
-Version: 1.0.1
-Date: 2026-10-10
---------------------------------------------------------------------------------
+
+## GCC MC/DC Coverage Requirements & Testsuite
+
+**Version:** 1.0.1
+**Date:** 2026-10-10
+
+---
+
 1. OVERVIEW
 --------------------------------------------------------------------------------
 The contents in this repo, along with some external code redistributed here and
