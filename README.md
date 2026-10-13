@@ -39,8 +39,10 @@ software usage criticalities and as well as to align with FAA standards.
   at the following publicly-available reference:  DOT/FAA/AR-06/54. 
 - This software is released under the GNU Public License Agreement and contains
   no warranties, see below. 
-- This software is summarized further by the author's youtube video: TBD
-  and in the following IEEE publication:  TBD
+- This software is summarized further by the author's youtube video: 
+  https://www.youtube.com/watch?v=BnIUxWchMGM
+  and in the following IEEE publication:  
+  https://ieeexplore.ieee.org/document/11732044
 
 --------------------------------------------------------------------------------
 3. SYSTEM REQUIREMENTS
