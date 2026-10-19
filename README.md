@@ -47,7 +47,8 @@ software usage criticalities and as well as to align with FAA standards.
 --------------------------------------------------------------------------------
 3. SYSTEM REQUIREMENTS
 --------------------------------------------------------------------------------
-- GCC version:  14.1 or later used with c17 compilation
+- GCC version:  Tested with gcc 14.3 with c17 compilation.
+   - Other gcc versions under test - see issues
 - Required Libraries / Dependencies:
    1) gcov-19.c - This is the testsuite that GCC uses for its releases, and 
       is available under GNU Public license from gcc's github site following 
