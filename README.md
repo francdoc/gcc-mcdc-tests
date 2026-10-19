@@ -47,7 +47,7 @@ software usage criticalities and as well as to align with FAA standards.
 --------------------------------------------------------------------------------
 3. SYSTEM REQUIREMENTS
 --------------------------------------------------------------------------------
-- GCC version:  Tested with **gcc 14.3** 
+- GCC version:  Tested with **gcc 14.3.0** on **Ubuntu 24.04.4 LTS**
    - Other gcc versions have behaved differently (see issues) and are being
      investigated
 - Required Libraries / Dependencies:
