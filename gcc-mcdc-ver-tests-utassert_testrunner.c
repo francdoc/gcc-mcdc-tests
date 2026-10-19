@@ -58,8 +58,8 @@
  **         Compare with expected gcov output
  **         Pass or Fail the test based on the comparison
  **
- **  Expected Output Summary:  	Tests Executed:  	40
- **                    			Assert Pass Count:	421
+ **  Expected Output Summary:  	Tests Executed:  	43
+ **                    			Assert Pass Count:	486
  **                             Assert Fail Count:  0
  **
  **  Limitations,Assumptions,Notes:
@@ -81,16 +81,14 @@
 **  Includes
 **============================================================================*/
 
-#include "utassert.h"    /* utassert includes, must compile with these .o's   */
-#include "uttest.h"
-#include "utlist.h" 
-#include "uttools.h"
-#include "common_types.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+
+/* Mini_UT-Assert includes, must compile with these .o's   */
+#include "utassert.h"
+#include "ut_hooks_stubs.h"
 
 #define LINEBUF 4096     /* largest size of .gcov output file line */
 
@@ -1221,25 +1219,6 @@ This is free software, and you are welcome to redistribute it under certain cond
  ** History
  **   03/24/2026   Lore/Copilot  Initial code and documentation complete
  **===========================================================================*/
- 
- /*=========================================================================*//**
- ** \brief     Placeholder required by utassert unit test framework, void.
- *//*=========================================================================*/
- 
-void Test_Setup(void)
-{
-    /* initialize test environment to default state for every test */
-
-}   /* end Example_Test_Setup */
-
- /*=========================================================================*//**
- ** \brief     Placeholder required by utassert unit test framework, void.
- *//*=========================================================================*/
- 
- void Test_TearDown(void)
-{
-    /* cleanup test environment */
-}   /* end Example_Test_TearDown */
 
 /*==============================================================================
 **                             DAL-C Tests 
