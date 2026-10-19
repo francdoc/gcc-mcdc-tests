@@ -47,9 +47,9 @@ software usage criticalities and as well as to align with FAA standards.
 --------------------------------------------------------------------------------
 3. SYSTEM REQUIREMENTS
 --------------------------------------------------------------------------------
-- GCC version:  Tested with **gcc 14.3.0** on **Ubuntu 24.04.4 LTS**
-   - Other gcc versions have behaved differently (see issues) and are being
-     investigated
+- GCC version:  Tested with **gcc 14.3.0** and **gcov 14.3.0** on **Ubuntu 24.04.4 LTS**
+   - Other gcc/gcov versions have behaved differently (see issues) and are being
+     investigated (stand by)
 - Required Libraries / Dependencies:
    1) gcov-19.c - This is the testsuite that GCC uses for its releases, and 
       is available under GNU Public license from gcc's github site following 
