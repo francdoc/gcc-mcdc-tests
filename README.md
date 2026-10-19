@@ -8,7 +8,7 @@ Archive Link: https://doi.org/10.5281/zenodo.23287624
 
 ## GCC MC/DC Coverage Requirements & Testsuite
 
-**Version:** 1.0.1
+**Version:** 1.1.0
 **Date:** 2026-10-10
 
 ---
@@ -55,16 +55,15 @@ software usage criticalities and as well as to align with FAA standards.
 	  It is used preferentially to test requirements if a test exists, then 
 	  supplemented by 'additional_gcc_testsuite.c' for comprehensive 
 	  requirements-based verification testing.
-   2) utassert - The testrunner runs with NASA's Open Source 'utassert' 
-	  unit test framework v. 1.1.0, unaltered from its original form, and is 
-	  redistributed here.  It is released under the NASA Open Source Agreement 
-	  (NOSA), and is publicly available at 
-	  https://sourceforge.net/projects/cfs-ut-assert/files/.  Only the one 
-	  testrunner program itself uses utassert function calls, and only the 
-	  "utAssertTrue()" call is used in the tests themselves, so these tests 	  
-	  could be readily converted into another unit test framework if desired.
-	  The testrunner is linked with the following utassert files only:  
-	  utassert.o, utlist.o, uttest.o, and uttools.o
+   2) Mini_UT-Assert - The testrunner runs with a mini verion of NASA's Open Source
+      'utassert' unit test framework, which is available here:
+      https://github.com/lore-prokop/Mini_UT-Assert. The original UT-Assert
+      is released under the NASA Open Source Agreement (NOSA), and is publicly
+      available at https://sourceforge.net/projects/cfs-ut-assert/files/.
+      Only the one testrunner program itself uses a minimal set of utassert
+      function calls, so these tests could be  converted into another unit test
+      framework if desired. The testrunner is linked with the following utassert
+      files only:  utassert.o, ut_hooks_stubs.o
 
 --------------------------------------------------------------------------------
 4. INSTALLATION and USAGE
@@ -75,28 +74,34 @@ Step 1) gcc (v14.1 or later) compile the testsuites (gcc_testsuite_gcov-19.c and
         additional_gcc_testsuite.c) with no optimization, c-17, and coverage 
 		similar to the following:  
         gcc -std=c17 -Wall -Wstrict-prototypes -DUT_VERBOSE -O0 -fprofile_arcs \
-		    -ftest-coverage -fcondition-coverage
+		    -ftest-coverage -fcondition-coverage 
 		- see makefile 'makefile-gcc-tests' and 'makefile-add-tests' 
+		
 Step 2) Run gcov on both testsuites above to generate '.gcov' files used as input 
         to 'gcc-mcdc-ver-tests-utassert_testrunner.c, Ex.
         gcov -abcdfgH additional_gcc_testsuite.c -o 
 		      add_tests-additional_gcc_testsuite
 		- see makefile 'makefile-gcc-tests' and 'makefile-add'tests'
+		
 Step 3) Compile and run the utassert testrunner. This program will analyze the 
         .gcov files produced above as input for proper coverage analysis.
+		include unit test switches: -DENABLE_HOOKS_AND_STUBS -DUT_VERBOSE
    	    (see makefile 'mcdc-ver-tests-utassert_testrunner')
+		
 Step 4) Verify Expected Results:  The testrunner will run one overall test
         for each of the 40 requirements, each requirement test containing a 
 		number of individual test cases.  The overall expected output is to 
 		the terminal, seeing 421 individual test cases pass.  Details are shown
-		in file 'expected_output.txt', but the overall summary should be:	
-				Tests Executed:    40
-				Assert Pass Count: 421
+		in file 'expected_output.txt', but the overall summary should be:
+		
+				Tests Executed:    43
+				Assert Pass Count: 486
 				Assert Fail Count: 0
 				
 Command Line Shortcuts:   The files in this distribution contain makefiles to
 perform the steps above, including generating documentation with the following 
 four commands:
+
 	$ make -f makefile-gcc-tests
 	$ make -f makefile-add-tests
 	$ make -f makefile-utassert-ver-tests
@@ -138,11 +143,7 @@ Other files:
 * expected-output.txt
 
 utassert library and related:
-* /cfs-ut-assert-1.1.0-OSS-release - this is the entirety of the utassert release, 
-      but none of the cfs stuff is used, only a small part of the framework
-	  is used, specifically only the following objects:  utassert.o, utlist.o
-	  uttest.o, and uttools.o, built to reside in the working directory
-* common_type.h - used to define types needed by utassert library
+* Acquire utassert library from github:  lore-prokop/Mini_UT-Assert
 
 doxygen-related files:
 * rtf_extensions_file - used to add author name
